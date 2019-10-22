@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "proto";
+option java_outer_classname = "PacketProto";
+option objc_class_prefix = "HLW";
+
+message Packet {
+    bytes service = 1;
+    bytes origin = 2;
+    bytes recipient = 3;
+    bytes body = 4;
+}
