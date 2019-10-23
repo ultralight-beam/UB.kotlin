@@ -5,10 +5,13 @@ apply plugin: 'com.google.protobuf'
 buildscript {
 
     repositories {
+        google()
+        jcenter()
         mavenCentral()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
     }
 }
 
@@ -16,7 +19,15 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation project(':proto')
+
+
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.12'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+
 }
+
 
 compileKotlin {
     kotlinOptions.freeCompilerArgs = ['-Xuse-experimental=kotlin.ExperimentalUnsignedTypes']
