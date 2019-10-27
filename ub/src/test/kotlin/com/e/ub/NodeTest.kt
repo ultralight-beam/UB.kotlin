@@ -7,6 +7,7 @@ import org.junit.*
 import org.junit.Assert.*
 import java.lang.StringBuilder
 import java.nio.ByteBuffer
+import kotlin.random.Random
 
 class NodeTest {
 
@@ -30,7 +31,22 @@ class NodeTest {
     }
 
     @org.junit.Test
-    fun testEncode() {
+    fun testRoundTripEncodeDecode() {
+        val from = Random(3).nextBytes(64)
+        val originalMessage = Message(
+                Random(1).nextBytes(64),
+                Random(2).nextBytes(64),
+                from,
+                Random(4).nextBytes(64),
+                ByteBuffer.wrap(Random(5).nextBytes(64))
+        )
+        //encode
+        val packet = originalMessage.toProto()
+        //decode
+        val decodedMessage = Message(packet, from)
+
+        assert(originalMessage.equals(decodedMessage));
+
     }
 }
 

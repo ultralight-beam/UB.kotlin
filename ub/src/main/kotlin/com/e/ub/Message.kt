@@ -39,5 +39,29 @@ public data class Message(
                 .setBody(ByteString.copyFrom(message))
                 .build()
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (javaClass != other?.javaClass) return false
+
+        other as Message
+
+        if (!service.contentEquals(other.service)) return false
+        if (!recipient.contentEquals(other.recipient)) return false
+        if (!from.contentEquals(other.from)) return false
+        if (!origin.contentEquals(other.origin)) return false
+        if (!message.array().contentEquals(other.message.array())) return false
+
+        return true
+    }
+
+    override fun hashCode(): Int {
+        var result = service.contentHashCode()
+        result = 31 * result + recipient.contentHashCode()
+        result = 31 * result + from.contentHashCode()
+        result = 31 * result + origin.contentHashCode()
+        result = 31 * result + message.hashCode()
+        return result
+    }
 }
 // @todo encoding and decoding
