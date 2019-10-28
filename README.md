@@ -1,5 +1,6 @@
 # UB.kotlin
 [![Build Status](https://travis-ci.com/ultralight-beam/UB.kotlin.svg?branch=master)](https://travis-ci.com/ultralight-beam/UB.kotlin)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a46e1acad01694fe1b6d/maintainability)](https://codeclimate.com/github/ultralight-beam/UB.kotlin/maintainability)
 [![License](https://img.shields.io/github/license/ultralight-beam/UB.kotlin.svg)](LICENSE)
 
 
