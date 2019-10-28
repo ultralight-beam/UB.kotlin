@@ -1,8 +1,5 @@
 package com.e.ub
 
-import kotlin.UByte;
-
-
 //todo: use UByte
 
 /// A node address represented as a byte array.

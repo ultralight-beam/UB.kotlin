@@ -4,7 +4,7 @@ import com.e.ub.Addr
 import com.e.ub.Peer
 import java.nio.ByteBuffer
 
-class BluetoothTransport :Transport{
+class BluetoothTransport : Transport {
     /// The transports delegate.
     override var delegate: TransportDelegate?
         get() {
@@ -17,7 +17,7 @@ class BluetoothTransport :Transport{
             TODO()
         }
 
-    override fun send(message: ByteBuffer, to: Addr){}
+    override fun send(message: ByteBuffer, to: Addr) {}
     /// Listen implements a function to receive messages being sent to a node.
-    override fun listen(){}
+    override fun listen() {}
 }

@@ -1,6 +1,5 @@
 package com.e.ub
 
-
 /// An interface used to handle events on the Node.
 public interface NodeDelegate {
     /// This method is called when a node receives a message.

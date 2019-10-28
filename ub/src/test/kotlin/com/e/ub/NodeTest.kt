@@ -2,9 +2,6 @@ package com.e.ub
 
 import com.e.ub.transports.BluetoothTransport
 import com.e.ub.transports.Transport
-import com.e.ub.transports.TransportDelegate
-import org.junit.*
-import org.junit.Assert.*
 import java.lang.StringBuilder
 import java.nio.ByteBuffer
 import kotlin.random.Random
@@ -26,7 +23,7 @@ class NodeTest {
         val node = Node()
         node.add(transport = transport)
         assert(node.transports.keys.first() == String(StringBuilder(transport.toString())))
-        node.remove(transport =  String(StringBuilder(transport.toString())))
+        node.remove(transport = String(StringBuilder(transport.toString())))
         assert(node.transports.values.isEmpty())
     }
 
@@ -45,8 +42,6 @@ class NodeTest {
         //decode
         val decodedMessage = Message(packet, from)
 
-        assert(originalMessage.equals(decodedMessage));
-
+        assert(originalMessage.equals(decodedMessage))
     }
 }
-

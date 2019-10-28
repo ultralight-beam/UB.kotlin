@@ -4,20 +4,20 @@ import com.google.protobuf.ByteString
 import java.nio.ByteBuffer
 import proto.Packet
 
-
 /// Message represents the message sent between nodes.
 public data class Message(
         // The message service.
-        val service: UBID,
+  val service: UBID,
         // The recipient of the message.
-        val recipient: Addr,
+  val recipient: Addr,
         // The sender of the message.
-        val from: Addr,
+  val from: Addr,
         // The origin of the message, or the original sender.
         // Differs from the `sender` as that changes on every hop.
-        val origin: Addr,
+  val origin: Addr,
         // The raw message data.
-        val message: ByteBuffer) {
+  val message: ByteBuffer
+) {
 
     /// Initializes a Message with a packet and a from addr.
     ///
@@ -31,7 +31,7 @@ public data class Message(
             protobuf.origin.toByteArray(),
             ByteBuffer.wrap(protobuf.body.toByteArray()))
 
-    fun toProto() : Packet {
+    fun toProto(): Packet {
         return Packet.newBuilder()
                 .setService(ByteString.copyFrom(service))
                 .setRecipient(ByteString.copyFrom(recipient))
@@ -46,13 +46,11 @@ public data class Message(
 
         other as Message
 
-        if (!service.contentEquals(other.service)) return false
-        if (!recipient.contentEquals(other.recipient)) return false
-        if (!from.contentEquals(other.from)) return false
-        if (!origin.contentEquals(other.origin)) return false
-        if (!message.array().contentEquals(other.message.array())) return false
-
-        return true
+        return service.contentEquals(other.service) &&
+                recipient.contentEquals(other.recipient) &&
+                from.contentEquals(other.from) &&
+                origin.contentEquals(other.origin) &&
+                message.array().contentEquals(other.message.array())
     }
 
     override fun hashCode(): Int {

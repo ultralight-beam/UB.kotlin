@@ -1,6 +1,5 @@
 package com.e.ub
 
-
 // @todo clean this up properly, currently very rough for testing purposes.
 public/// Represents the nodes a transport can communicate with.
 class Peer {

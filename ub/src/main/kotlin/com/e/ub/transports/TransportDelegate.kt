@@ -3,7 +3,6 @@ package com.e.ub.transports
 import com.e.ub.Addr
 import java.nio.ByteBuffer
 
-
 /// An interface used to handle events on the Transport.
 public interface TransportDelegate {
     /// This method is called when a transport receives new data.

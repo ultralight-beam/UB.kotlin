@@ -2,8 +2,8 @@ package com.e.ub.transports
 
 import com.e.ub.Addr
 import com.e.ub.Peer
+import com.e.ub.UBID
 import java.nio.ByteBuffer
-
 
 /// Transports are used to send messages between nodes using different methods, e.g. wifi direct or bluetooth.
 public interface Transport {
@@ -19,5 +19,8 @@ public interface Transport {
     fun send(message: ByteBuffer, to: Addr)
     /// Listen implements a function to receive messages being sent to a node.
     fun listen()
+    /// Return peers that support a particular service
+    fun peersWithService(service: UBID): List<Peer> {
+        return peers.filter { peer -> peer.services.any { it.contentEquals(service) } }
+    }
 }
-
